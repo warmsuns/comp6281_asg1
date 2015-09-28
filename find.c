@@ -1,5 +1,7 @@
 #include "find.h"
 #include "stdio.h"
+
+extern char currentDirectory[1000];
 void runFindAndReplace()
 {
     system("clear");
@@ -29,7 +31,12 @@ void runFindAndReplace()
 char* readFile(char* fileName)
 {
     char * fPtr = NULL;
-    FILE* file = fopen(fileName, "r");
+    char absFileName[2000];
+    strcpy(absFileName, currentDirectory);
+    strcat(absFileName, "/");
+    strcat(absFileName, fileName);
+    printf("\r\ntry to open:%s\r\n", absFileName);
+    FILE* file = fopen(absFileName, "r");
     if(file == NULL)
     {
         perror("File doesn't exists\n");

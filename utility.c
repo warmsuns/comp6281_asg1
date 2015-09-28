@@ -15,7 +15,7 @@ struct FileInfo{
 };
 
 //Once this app is run, the default direction is set to "."
-static char currentDirectory[1000] = ".";
+char currentDirectory[1000] = ".";
 
 //change a direct to a position according to input.
 //if input ",", currentDirectory will not be changed
